@@ -5,12 +5,14 @@ from bs4 import BeautifulSoup
 import requests
 
 class CarCategoryPageScraper:
-    __base_url = ""
-    __car_post_scraper = CarPostScraper(__base_url)
-
     def __init__(self, base_url, car_post_scraper):
         self.__base_url = base_url
         self.__car_post_scraper = car_post_scraper
+
+    def get_all_car_data(self):
+        sorted_car_tuple_list = self.get_all_car_posts_sorted_by_car_type()
+        all_car_data = self.__car_post_scraper.get_cars_data(sorted_car_tuple_list)  # list of CarStatistics objects
+        return all_car_data
 
     #returns tuple list sorted by key (car type) example volkswagen polo 1
     def get_all_car_posts_sorted_by_car_type(self):
@@ -18,8 +20,8 @@ class CarCategoryPageScraper:
         car_category_url_extension = UserInputCollector.get_user_input_for(categories)
         car_tuple_list = self.__get_car_post_tuple_list_multiple_pages(car_category_url_extension)
         sorted_car_tuple_list = self.__sort_tuple_by_key(car_tuple_list)
+        return sorted_car_tuple_list
 
-        self.__car_post_scraper.get_cars_data(sorted_car_tuple_list)
 
     def __get_all_categories_from_kp(self):
         category_url_expand = "automobili/kategorija/2013"

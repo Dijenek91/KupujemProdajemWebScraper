@@ -7,7 +7,7 @@ from ExportModel.CarDataItemList import CarDataItemList
 from ExportModel.CarStat import CarStatistics
 
 class CarPostScraper:
-    __base_url = ""
+
     def __init__(self, base_url):
         self.__base_url = base_url
 

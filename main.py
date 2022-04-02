@@ -8,8 +8,6 @@ if __name__ == '__main__':
     car_category_page = CarCategoryPageScraper(base_car_url, car_post_scraper)
     #call processing
     all_car_data = car_category_page.get_all_car_data()
-
-    #scrape post individually
     #save csv file for excel spreadsheet
 
     print(all_car_data)

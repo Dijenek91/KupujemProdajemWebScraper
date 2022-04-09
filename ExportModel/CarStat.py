@@ -10,3 +10,7 @@ class CarStatistics:
     '''Populates the List object with a new CarDataItemList object'''
     def append_car_data_item_list(self, new_car_data_Item_list):
         self.car_data_item_list_list.append(new_car_data_Item_list)
+
+    def get_header_list(self):
+        first_car_data_item_list = self.car_data_item_list_list[0]
+        return first_car_data_item_list.get_header_list()

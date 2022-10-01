@@ -77,7 +77,7 @@ class CarCategoryPageScraper:
         Gets a CarLinkDTO list (car type, url extension for that user post) for ONLY one page
 
         :param car_category_url_extension: Car category url extensions on KupujemProdajem site
-        :param page_to_scrape: How many pages to scrape
+        :param page_to_scrape: Which page to scrape
         :return carLinkDto_list:
             list of CarLinkDTO objects each containing car type name and post url link
         """
@@ -99,10 +99,8 @@ class CarCategoryPageScraper:
 
         :param car_tuple_list:
         :return tuple List:
-            Sorted tuple list by car type name example [(car_url, [url_post_link1, url_post_link2]),() ....]
+            Sorted DTO list by car type name example [(car_url, [url_post_link1, url_post_link2]),() ....]
         """
-
-
         car_dictionary = defaultdict(list)
         for car_link_dto in car_link_dto_list:
             car_dictionary[car_link_dto.car_type_name].append(car_link_dto.post_url_link)

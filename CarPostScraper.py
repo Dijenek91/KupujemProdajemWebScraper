@@ -4,7 +4,7 @@ from bs4 import BeautifulSoup
 
 from ExportModel.CarDataItem import CarDataItem
 from ExportModel.CarDataItemList import CarDataItemList
-from ExportModel.CarStat import CarStatistics
+from ExportModel.CarStatistics import CarStatistics
 
 class CarPostScraper:
 
